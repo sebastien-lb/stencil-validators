@@ -8,8 +8,18 @@
 
 </head>
 <body>
-
-  <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+  <animated-input></animated-input>
 
 </body>
+<script>
+  var comp = document.querySelector('animated-input');
+  console.log('comp', comp.validator);
+  let validator = [{
+    name: 'length',
+    options: {
+      min: 6
+    }
+  }, 'fruit'];
+  comp.validator = validator;
+</script>
 </html>

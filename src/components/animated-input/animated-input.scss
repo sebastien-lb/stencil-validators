@@ -1,0 +1,52 @@
+
+:host {
+    .outer-container {
+        .input-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .input-container {
+                padding: 0.5rem;
+                border-radius: 1rem;
+                border: 1px solid grey;
+                flex: 1;
+                input {
+                    outline: none !important;
+                    border: none;
+                    width: 100%;
+                    font-size: 0.8rem;
+                }
+            }
+            .status {
+                width: 32px;
+                height: 32px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img {
+                    height: 20px;
+                    width: 20px;
+                    display: flex;
+                }
+            }
+        }
+        .validation-error {
+            font-size: 0.8rem;
+            color: #d83134;
+        }
+        &.valid {
+            .input-row {
+                .input-container {
+                    border-color: #01c44c;
+                }
+            }
+        }
+        // &.invalid {
+        //     .input-row {
+        //         .input-container {
+        //             border-color: #d83134;
+        //         }
+        //     }
+        // }
+    }
+}

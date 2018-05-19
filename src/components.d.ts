@@ -23,13 +23,54 @@ declare global {
   interface HTMLAttributes {}
 }
 
+import {
+  Validator,
+  ValidatorEntry,
+} from './validators';
+
+declare global {
+
+  namespace StencilComponents {
+    interface AnimatedInput {
+      'validate': () => void;
+      'validator': Array<string | ValidatorEntry | Validator<string>>;
+      'value': string;
+    }
+  }
+
+  interface HTMLAnimatedInputElement extends StencilComponents.AnimatedInput, HTMLStencilElement {}
+
+  var HTMLAnimatedInputElement: {
+    prototype: HTMLAnimatedInputElement;
+    new (): HTMLAnimatedInputElement;
+  };
+  interface HTMLElementTagNameMap {
+    'animated-input': HTMLAnimatedInputElement;
+  }
+  interface ElementTagNameMap {
+    'animated-input': HTMLAnimatedInputElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'animated-input': JSXElements.AnimatedInputAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AnimatedInputAttributes extends HTMLAttributes {
+      'onChanged'?: (event: CustomEvent<string>) => void;
+      'validator'?: Array<string | ValidatorEntry | Validator<string>>;
+      'value'?: string;
+    }
+  }
+}
+
 
 declare global {
 
   namespace StencilComponents {
     interface MyComponent {
-      'first': string;
-      'last': string;
+      'validator': Array<string | ValidatorEntry | Validator<string>>;
+      'value': string;
     }
   }
 
@@ -52,8 +93,9 @@ declare global {
   }
   namespace JSXElements {
     export interface MyComponentAttributes extends HTMLAttributes {
-      'first'?: string;
-      'last'?: string;
+      'onChanged'?: (event: CustomEvent<string>) => void;
+      'validator'?: Array<string | ValidatorEntry | Validator<string>>;
+      'value'?: string;
     }
   }
 }
