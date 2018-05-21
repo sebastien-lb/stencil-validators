@@ -30,7 +30,6 @@ export class MyComponent {
   }
 
   render() {
-    console.log(this._validator, this._validator.validate(this.value), this.validator);
     return (
         <div>
           <div class="input-container">

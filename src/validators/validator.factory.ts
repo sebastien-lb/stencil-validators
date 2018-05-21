@@ -1,4 +1,4 @@
-import { Validator, ValidatorEntry, defaultValidator, combineValidator } from './validator'
+import { Validator, ValidatorEntry, defaultValidator, combineValidators } from './validator'
 import { FruitValidator } from './fruit-validator/fruit-validator';
 import { getLengthValidator } from './length-validator/length-validator';
 
@@ -18,11 +18,11 @@ export function getValidator<A>(list: Array<string | ValidatorEntry | Validator<
         } else {
             return v as Validator<A>;
         }
-    }).reduce(combineValidator, defaultValidator);
+    }).reduce(combineValidators, defaultValidator);
 }
 
 export function validatorFactory(name: string, options: any): Validator<any> {
-    options ? options : {};
+    options = options || {};
     switch (name) {
         case (ValidatorsName.fruit):
             return FruitValidator;

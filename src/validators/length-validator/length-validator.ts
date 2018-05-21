@@ -3,7 +3,7 @@ import { Validator } from '../validator';
 export function getLengthValidator(min: number, max: number): Validator<string> {
     return {
         validate: (value: string) => {
-            value = value ? value : '';
+            value = value || '';
             if (min && max) {
                 return min <= value.length && value.length <= max;
             }
@@ -15,10 +15,12 @@ export function getLengthValidator(min: number, max: number): Validator<string> 
             } 
             return true;
         },
-        errorMessage: 
+        errorMessage:
             min && max ? `You must enter between ${min} and ${max} characters`
             : min ? `You must enter at least ${min} characters`
             : max ? `You must enter less than ${max} characters` : ''
     };
 }
 
+const mystring: string = null;
+getLengthValidator(2,4).validate(mystring);
