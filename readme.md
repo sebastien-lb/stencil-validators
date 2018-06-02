@@ -2,7 +2,7 @@
 
 # Stencil Validated Inputs
 
-This repo cntains the code related to this article. It contains an input component which and a complete structure for validation pattern. 
+This repo cntains the code related to this article. It contains an input component which and a complete structure for validation pattern. https://medium.com/@sebastien.lubineau/input-validation-with-stenciljs-f464644545c8
 
 # Stencil
 
